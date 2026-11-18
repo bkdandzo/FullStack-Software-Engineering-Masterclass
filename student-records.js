@@ -136,3 +136,76 @@ if (locatedPupil) {
 
 // Lesson 6 — Introduction to .filter()
 // JavaScript's .filter() method helps you select all array elements that satisfy a condition.
+
+/*
+  Challenge: 6A - Filtering Student Records
+
+  Objective:
+  Use .filter() to retrieve students who meet a specific age requirement.
+*/
+
+const studs = [
+  { name: "Ama", age: 17 },
+  { name: "Kofi", age: 18 },
+  { name: "Abena", age: 16 },
+  { name: "Yaw", age: 20 },
+  { name: "Akosua", age: 19 },
+  { name: "Kwame", age: 15 },
+];
+
+const adultStudents = studs.filter((stud) => {
+  return stud.age >= 18;
+});
+console.log(adultStudents);
+
+/*
+  Challenge: 6B - Displaying Filtered Student Records
+  
+  Objective:
+  Filter students by age and display each matching student's information using a for...of loop.
+
+    In a real application, we often need to do two things:
+  - Filter data: Select records that meet a condition.
+  - Display data: Present those records in a readable format.
+*/
+
+for (const stud of adultStudents) {
+  console.log(`Student: ${stud.name} | Age: ${stud.age}`);
+}
+console.log(adultStudents);
+
+// Student scores
+const scores = [45, 60, 75];
+
+const passedScores = scores.filter((score) => {
+  return score >= 80;
+});
+
+console.log("Filtering completed");
+
+for (const score of passedScores) {
+  console.log(`Passed: ${score}`);
+}
+
+console.log("Program finished");
+
+/*
+  Challenge: 6C - Handling Empty Filter Results
+  New Concept: Checking an Array's Length
+
+  Objective:
+  Filter students by age and display a helpful message when no matching students exist.
+*/
+
+const minimumAge = 25;
+const eligibleStudents = studs.filter((stud) => {
+  return stud.age >= minimumAge;
+});
+
+if (eligibleStudents.length === 0) {
+  console.log(`No eligible student found`);
+} else {
+  for (const stud of eligibleStudents) {
+    console.log(`Student: ${stud.name} | Age: ${stud.age}`);
+  }
+}
