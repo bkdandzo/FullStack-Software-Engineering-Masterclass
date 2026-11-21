@@ -209,3 +209,95 @@ if (eligibleStudents.length === 0) {
     console.log(`Student: ${stud.name} | Age: ${stud.age}`);
   }
 }
+
+/*
+  Topic: JavaScript Array Transformation
+  Lesson: 7 - Array .map() Method
+
+  .map() visits every element in an array, transforms it according to your instructions, and creates a new array containing the results.
+
+  Notice that .map() produces a new array of strings, even though the original array contains objects. This is useful when preparing data for user interfaces, reports, dropdown menus, and API responses.
+*/
+
+/*
+  Challenge: 7A - Transforming Student Records
+
+  Objective:
+  Use .map() to extract student names from an array of student objects.
+ */
+
+const products = [
+  { name: "Laptop", price: 5000 },
+  { name: "Phone", price: 3000 },
+  { name: "Tablet", price: 2000 },
+];
+
+const productNames = products.map((product) => {
+  return product.name;
+});
+
+console.log(productNames);
+
+const classStudents = [
+  { name: "Ama", age: 17 },
+  { name: "Kofi", age: 18 },
+  { name: "Abena", age: 16 },
+];
+
+const classStudentNames = classStudents.map((classStudent) => {
+  return classStudent.name;
+});
+
+console.log(classStudentNames);
+
+const goods = [
+  { name: "Laptop", price: 5000 },
+  { name: "Phone", price: 3000 },
+  { name: "Tablet", price: 2000 },
+];
+
+const goodPrices = goods.map((good) => {
+  return good.price;
+});
+
+console.log(goodPrices);
+
+/*
+  Project: 01 - Student Records Explorer
+  Challenge: 7A - Extracting Student Names
+*/
+const studNames = studs.map((stud) => {
+  return stud.name;
+});
+console.log(studNames);
+
+/*
+  Challenge: 7B - Generating Student Reports
+
+  Objective:
+  Transform student objects into readable report strings using .map() and template literals.
+*/
+const gadgets = [
+  { name: "Laptop", price: 5000 },
+  { name: "Phone", price: 3000 },
+];
+
+const descriptions = gadgets.map((gadget) => {
+  return `${gadget.name} costs GH₵${gadget.price}`;
+});
+console.log(descriptions);
+
+const employees = [
+  { name: "Kofi", salary: 3000 },
+  { name: "Ama", salary: 4500 },
+];
+
+const reports = employees.map((employee) => {
+  return `${employee.name} earns GH₵${employee.salary}`;
+});
+console.log(reports);
+
+const studentReports = studs.map((stud) => {
+  return `Student: ${stud.name} | Age: ${stud.age}`;
+});
+console.log(studentReports);

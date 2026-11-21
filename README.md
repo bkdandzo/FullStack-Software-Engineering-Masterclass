@@ -1,9 +1,9 @@
 # Student Records Explorer
 
-A beginner JavaScript project that stores student records as an array of objects and works with them: reading nested data safely, handling missing values, formatting reports, looping through records, searching for a student and filtering groups of students.
+A beginner JavaScript project that stores student records as an array of objects and works with them: reading nested data safely, handling missing values, formatting reports, looping through records, searching for a student, filtering groups of students and transforming records with `.map()`.
 
 > **Learning track:** Phase 1 (Absolute Beginner), JavaScript Data Handling Fundamentals
-> **Status:** 🚧 In progress. Lesson 6 (`.filter()`) is done. `.map()` is next.
+> **Status:** 🚧 In progress. Lesson 7 (`.map()`) is done. `.reduce()` is next.
 
 ---
 
@@ -26,6 +26,7 @@ Using this data, the program:
 - prints a formatted report line for each student
 - searches for a student by name and handles the case where no match is found
 - filters students by age and shows a helpful message when nobody matches
+- transforms student objects into a list of names and into ready-to-print report strings
 
 ---
 
@@ -44,6 +45,8 @@ Using this data, the program:
 | 6A | Filtering student records | `Array.prototype.filter()` | Returns a new array of every student aged 18 or older |
 | 6B | Displaying filtered records | `.filter()` + `for...of` | Prints each matching student in a readable format |
 | 6C | Handling empty filter results | `.filter()` + `.length` check | Shows "No eligible student found" when the filtered array is empty |
+| 7A | Extracting student names | `Array.prototype.map()` | Turns an array of student objects into an array of names |
+| 7B | Generating student reports | `.map()` + template literals | Turns each student object into a readable report string |
 
 ### Key snippets
 
@@ -86,6 +89,15 @@ if (eligibleStudents.length === 0) {
     console.log(`Student: ${stud.name} | Age: ${stud.age}`);
   }
 }
+```
+
+**Transforming records with `.map()`**
+```js
+const studNames = studs.map((stud) => stud.name);
+// → [ 'Ama', 'Kofi', 'Abena', 'Yaw', 'Akosua', 'Kwame' ]
+
+const studentReports = studs.map((stud) => `Student: ${stud.name} | Age: ${stud.age}`);
+// → [ 'Student: Ama | Age: 17', 'Student: Kofi | Age: 18', ... ]
 ```
 
 ---
@@ -133,6 +145,20 @@ Student: Akosua | Age: 19
 Filtering completed
 Program finished
 No eligible student found
+[ 'Laptop', 'Phone', 'Tablet' ]
+[ 'Ama', 'Kofi', 'Abena' ]
+[ 5000, 3000, 2000 ]
+[ 'Ama', 'Kofi', 'Abena', 'Yaw', 'Akosua', 'Kwame' ]
+[ 'Laptop costs GH₵5000', 'Phone costs GH₵3000' ]
+[ 'Kofi earns GH₵3000', 'Ama earns GH₵4500' ]
+[
+  'Student: Ama | Age: 17',
+  'Student: Kofi | Age: 18',
+  'Student: Abena | Age: 16',
+  'Student: Yaw | Age: 20',
+  'Student: Akosua | Age: 19',
+  'Student: Kwame | Age: 15'
+]
 ```
 
 ---
@@ -141,7 +167,7 @@ No eligible student found
 
 ```text
 JavaScript Data Handling Fundamentals/
-├── student-records.js   # All challenges, in order (1 → 6C)
+├── student-records.js   # All challenges, in order (1 → 7B)
 └── README.md
 ```
 
@@ -157,7 +183,7 @@ JavaScript Data Handling Fundamentals/
 - [x] Handling missing search results
 - [x] Selecting groups of students with `.filter()` (Lesson 6)
 - [x] Handling empty filter results with `.length`
-- [ ] Transforming data with `.map()`
+- [x] Transforming data with `.map()` (Lesson 7)
 - [ ] Summarising data with `.reduce()`
 
 ---
@@ -170,6 +196,8 @@ JavaScript Data Handling Fundamentals/
 - `.find()` returns `undefined` when nothing matches, so the result must be checked before it is used.
 - `.filter()` always returns a new array, even an empty one, so check `.length` to handle the no-match case.
 - A `for...of` loop over an empty array simply doesn't run, so without a check the user gets no feedback at all.
+- `.map()` returns a new array of the same length and leaves the original array unchanged.
+- `.map()` can change the shape of the data, for example turning objects into strings for reports, dropdowns or API responses.
 
 ---
 
